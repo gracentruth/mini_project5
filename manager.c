@@ -89,3 +89,24 @@ int saveData(Product *p[],int count){
     printf("저장됨!");
     return count;
 }
+int loadData(Product *p[]){
+    int count=0;
+    FILE *fp;
+    fp=fopen("product.txt","rt");
+ 
+     if(fp==NULL){
+         printf("=>파일 업음\n");
+         return 0;
+     }
+     for(;;count++){
+          fscanf(fp,"%d %d %d %d\n",&(p[count]->gram),&(p[count]->price),&(p[count]->sprice),&(p[count]->star));
+          fgets(p[count]->name,sizeof(p[count]->name),fp);
+        p[count]->name[strlen(p[count]->name)] = '\0';
+          
+         
+    if(feof(fp))break;
+     }
+     fclose(fp);
+     printf("=>로딩 성공!");
+    return count;
+}
