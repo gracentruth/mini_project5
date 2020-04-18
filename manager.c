@@ -37,3 +37,23 @@ void searchName(Product *p[], int count){
     if(pcount==0)printf("=>검색된 데이터 없음!");
     printf("\n");
 }
+void searchPrice(Product *p[], int count){
+    int pcount=0;
+    int searchprice;
+
+    printf("검색할 메뉴?");
+    getchar();
+    scanf("%d",&searchprice);
+
+    for(int i=0; i<count;i++){
+        if(p[i]->gram!=-1){
+            if(p[i]->price==searchprice){
+        if(pcount==0) printf("과자정보\n======================================\n");
+   readProduct(*p[i]);
+    pcount++;
+            }
+        }
+    }
+    if(pcount==0)printf("=>검색된 데이터 없음!");
+    printf("\n");
+}
