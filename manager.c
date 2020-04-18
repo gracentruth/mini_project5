@@ -77,3 +77,15 @@ void searchSprice(Product *p[], int count){
     if(pcount==0)printf("=>검색된 데이터 없음!");
     printf("\n");
 }
+int saveData(Product *p[],int count){
+    FILE *fp; 
+    fp=fopen("product.txt","wt");
+    for(int i=0;i<count;i++){
+        if(p[i]->gram!=-1){
+    fprintf(fp,"%d %d %d %d %s\n",p[i]->gram,p[i]->price,p[i]->sprice,p[i]->star,p[i]->name); 
+        }
+    } 
+    fclose(fp);
+    printf("저장됨!");
+    return count;
+}
