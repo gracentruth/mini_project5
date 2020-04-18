@@ -41,7 +41,23 @@ else if(m==4){
     count--;
     }
         }
-      // 
+          else if(m==5){
+        searchName(p,count);
+    }
+    else if(m==6){
+        searchPrice(p,count);
+    }
+    else if(m==7){
+        searchSprice(p,count);
+    }
+    else if(m==8){
+        if(count==0){
+            printf("데이터가 없습니다!\n");
+        }
+        else {
+            saveData(p,count);
+        }
+    }
     }
 
     printf("종료됨");
